@@ -1,9 +1,11 @@
 # CMCC_Voice_Remote · VibeCoding
 
-> 中国移动机顶盒语音遥控 → Cardputer ADV → Windows USB 键盘 / 语音听写  
+> 中国移动机顶盒语音遥控 → **ESP32**（BLE + USB HID）→ Windows 键盘 / 语音听写  
 > 刷红果短剧、抖音 · 配合微信输入法做语音 AI 编程
 
-把普通**中国移动机顶盒语音遥控器**（`CMCC_Voice_Remote`）接到电脑：用 **M5Stack Cardputer ADV**（ESP32-S3）做桥梁——按键映射成 Windows USB 键盘/多媒体键，语音经串口落到 PC 再解码成 WAV。
+把普通**中国移动机顶盒语音遥控器**（`CMCC_Voice_Remote`）接到电脑：用一块 **ESP32**（本仓库参考实现跑在 **M5Stack Cardputer ADV / ESP32-S3**）做桥梁——按键映射成 Windows USB 键盘/多媒体键，语音经串口落到 PC 再解码成 WAV。
+
+**本方案不绑定 ADV。** 核心是「ESP32 当 BLE Central + USB HID 复合设备」；StampS3、DevKit、其它 ESP32-S3 / 带原生 USB 的板子都可参考移植（改引脚、屏/键盘即可）。仓库提供的现成 `.bin` 面向 Cardputer ADV，其它板请自行编译。
 
 典型用法：
 
@@ -12,28 +14,29 @@
 
 不必买网上很火的「小米遥控器 2 Pro」。
  
-| Cardputer ADV（本固件菜单） | CMCC 语音遥控器 |
+| 参考实现：Cardputer ADV | CMCC 语音遥控器 |
 |:---:|:---:|
 | ![Cardputer ADV](ADV.jpg) | ![CMCC Voice Remote](cmcc.jpg) |
 
 ```
-CMCC_Voice_Remote  --BLE-->  Cardputer ADV  --USB HID-->  Windows 键盘/多媒体
-                              |--USB CDC-->  串口语音帧 → tools/voice → WAV
-                              |--WiFi----->  网页配置 / 按键学习
+CMCC_Voice_Remote  --BLE-->  ESP32 (ADV 参考实现)  --USB HID-->  Windows 键盘/多媒体
+                                      |--USB CDC-->  串口语音帧 → tools/voice → WAV
+                                      |--WiFi----->  网页配置 / 按键学习
 ```
 
 ## 硬件与环境
 
 | 项目 | 说明 |
 |------|------|
-| 设备 | Cardputer ADV（ESP32-S3，8MB Flash） |
+| 方案 | 任意能跑 BLE Central + USB Device 的 **ESP32**（推荐 ESP32-S3 原生 USB） |
+| 参考板 / 现成固件 | Cardputer ADV（ESP32-S3，8MB Flash）——Releases 里的 bin 针对此板 |
 | 遥控器 | 中国移动机顶盒标配语音遥控，BLE 名多为 `CMCC_Voice_Remote` |
 | PC | Windows；刷机工具（见下）；可选串口监视器 **115200** |
-| 可选 | TF 卡（日志 + 键位备份） |
+| 可选 | TF 卡（日志 + 键位备份；ADV 上有卡槽） |
 
 ## 下载与刷机（普通用户）
 
-**不必自己编译。** 请到 **[Releases](https://github.com/miaolink/CMCC_Voice_Remote_VibeCoding/releases)** 下载最新发布包，解压后刷入 ADV。
+**不必自己编译（ADV 用户）。** 请到 **[Releases](https://github.com/miaolink/CMCC_Voice_Remote_VibeCoding/releases)** 下载最新发布包，解压后刷入 ADV。其它 ESP32 板请 clone 源码改板级配置后自行编译。
 
 发布包通常包含：
 
@@ -230,11 +233,11 @@ python voice_cap.py COM3 --auto
 
 ---
 
-## 开发者：自行编译（可选）
+## 开发者：自行编译 / 移植其它 ESP32（可选）
 
-普通用户请用 Releases 固件，无需本节。
+ADV 普通用户请用 Releases 固件，无需本节。
 
-需 [PlatformIO](https://platformio.org/)。在本仓库根目录：
+需 [PlatformIO](https://platformio.org/)。在本仓库根目录（ADV 环境）：
 
 ```bash
 pio run -e cardputer-adv
@@ -242,7 +245,16 @@ pio run -e cardputer-adv -t upload --upload-port COMx
 pio device monitor -b 115200 --port COMx
 ```
 
-也可直接双击 `flash.bat COMx`。  
+也可 `flash.bat COMx`。
+
+移植到其它 ESP32 时，优先改：
+
+- `platformio.ini`：board / flash / `build_flags`（USB CDC/HID）
+- 屏与键盘驱动（`display_ui` / `kb_input`）——无屏也可只靠串口 + Web
+- USB：推荐 **ESP32-S3** 原生 Device；经典 ESP32 需外接 USB-UART 或改方案
+
+BLE（NimBLE）+ 键位学习 + WiFi Web 与板型无关，可直接复用。
+
 打发布包：把 `.pio/build/cardputer-adv/firmware.bin` 重命名为 `cmcc-ble-bridge-menu.bin`（及可选 keymap）上传到 [Releases](https://github.com/miaolink/CMCC_Voice_Remote_VibeCoding/releases)。
 
 ## 目录结构
