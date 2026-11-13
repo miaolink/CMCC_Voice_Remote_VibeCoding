@@ -1,0 +1,15 @@
+{
+  "name": "g7221",
+  "version": "0.2.0",
+  "build": {
+    "flags": [
+      "-DG722_1_USE_FIXED_POINT",
+      "-DHAVE_CONFIG_H=0",
+      "-Iinclude",
+      "-Isrc"
+    ],
+    "srcFilter": [
+      "+<src/*.c>"
+    ]
+  }
+}

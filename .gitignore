@@ -1,0 +1,23 @@
+# PlatformIO
+.pio/
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+*.pyc
+__pycache__/
+
+# Local / OS
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+
+# Voice capture outputs
+tools/voice/out/
+tools/voice/*.raw
+tools/voice/*.wav
+
+# Secrets / local prefs dumps
+*.local
+.env

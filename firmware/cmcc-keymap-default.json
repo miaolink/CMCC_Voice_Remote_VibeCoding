@@ -1,0 +1,20 @@
+{
+  "keys": [
+    {"i": 0, "id": "up", "zh": "上", "learned": true, "hex": "00 00 52 00 00 00 00 00", "len": 8, "usb_label": "ArrowUp"},
+    {"i": 1, "id": "down", "zh": "下", "learned": true, "hex": "00 00 51 00 00 00 00 00", "len": 8, "usb_label": "ArrowDown"},
+    {"i": 2, "id": "left", "zh": "左", "learned": true, "hex": "00 00 50 00 00 00 00 00", "len": 8, "usb_label": "ArrowLeft"},
+    {"i": 3, "id": "right", "zh": "右", "learned": true, "hex": "00 00 4F 00 00 00 00 00", "len": 8, "usb_label": "ArrowRight"},
+    {"i": 4, "id": "ok", "zh": "确定", "learned": true, "hex": "41 00", "len": 2, "usb_label": "Enter"},
+    {"i": 5, "id": "home", "zh": "首页", "learned": true, "hex": "23 02", "len": 2, "usb_label": "Home"},
+    {"i": 6, "id": "back", "zh": "返回", "learned": true, "hex": "24 02", "len": 2, "usb_label": "Escape"},
+    {"i": 7, "id": "voice", "zh": "语音", "learned": true, "hex": "82 03 01 00 01 00 01 00 00 00 00 00 00 00 00 00", "len": 16, "usb_label": "Alt+b"},
+    {"i": 8, "id": "m", "zh": "M", "learned": true, "hex": "F0 00", "len": 2, "usb_label": "m"},
+    {"i": 9, "id": "vol_up", "zh": "音量+", "learned": true, "hex": "E9 00", "len": 2, "usb_label": "VolumeUp"},
+    {"i": 10, "id": "vol_down", "zh": "音量-", "learned": true, "hex": "EA 00", "len": 2, "usb_label": "VolumeDown"},
+    {"i": 11, "id": "ch_up", "zh": "频道+", "learned": true, "hex": "00 00 4B 00 00 00 00 00", "len": 8, "usb_label": "WheelUp"},
+    {"i": 12, "id": "ch_down", "zh": "频道-", "learned": true, "hex": "00 00 4E 00 00 00 00 00", "len": 8, "usb_label": "WheelDown"},
+    {"i": 13, "id": "menu", "zh": "菜单", "learned": true, "hex": "00 00 65 00 00 00 00 00", "len": 8, "usb_label": "Menu"},
+    {"i": 14, "id": "mute", "zh": "静音", "learned": true, "hex": "E2 00", "len": 2, "usb_label": "Ctrl+0"},
+    {"i": 15, "id": "settings", "zh": "设置", "learned": true, "hex": "EB 00", "len": 2, "usb_label": "Settings"}
+  ]
+}
