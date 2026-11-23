@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0-only
+# Origin: https://github.com/jackielozet/cmcc-voice-remote-bridge
+#         tools/g7221-decoder/libg722_1-v0.2.0-debug-globals.patch
 diff --git a/src/decoder.c b/src/decoder.c
 index f1db32f..477f7b2 100644
 --- a/src/decoder.c

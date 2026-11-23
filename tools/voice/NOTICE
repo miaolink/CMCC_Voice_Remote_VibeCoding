@@ -1,0 +1,19 @@
+# tools/voice — 第三方来源与许可证
+
+本目录中下列文件（及由其衍生的解码产物）来自
+[jackielozet/cmcc-voice-remote-bridge](https://github.com/jackielozet/cmcc-voice-remote-bridge)
+（作者 jackielozet），以 **GPL-2.0** 发布。本仓库保留其许可证；完整文本见同目录
+[`LICENSE`](LICENSE)。
+
+| 本仓库路径 | 上游路径（cmcc-voice-remote-bridge） |
+|---|---|
+| `tools/voice/voice_bridge.py` | `pc/voice_bridge_20261031_0115.py` |
+| `tools/voice/audio_decode_summary.md` | `audio_decode_summary.md` |
+| `tools/voice/libg722_1-v0.2.0-debug-globals.patch` | `tools/g7221-decoder/libg722_1-v0.2.0-debug-globals.patch` |
+| `tools/voice/decode_main.c` | `tools/g7221-decoder/decode_main.c`（衍生） |
+| `lib/g7221/src/decoder.c` | 对 freeswitch/libg7221 应用上述补丁后的产物 |
+
+另：`tools/voice/libg7221/` 与 `lib/g7221/` 中的 **freeswitch/libg7221**（v0.2.0）本身亦为
+**GPL-2.0**；`decode.exe` 静态链接该库，整体按 GPL-2.0 分发，并以独立进程调用。
+
+其余本仓库代码默认见根目录 [`LICENSE`](../../LICENSE)（MIT）。

@@ -23,8 +23,24 @@ SOFTWARE.
 ---------------------------------------------------------------------------
 Third-party notice
 
-- tools/voice/decode.exe and libg7221 (freeswitch/libg7221) are licensed under
-  GPL-2.0 and are invoked as a separate process / optional dependency.
-- NimBLE-Arduino, Arduino-ESP32, Adafruit TCA8418, GFX Library for Arduino and
-  other PlatformIO dependencies retain their respective upstream licenses.
+1) jackielozet / cmcc-voice-remote-bridge (GPL-2.0)
+   Source: https://github.com/jackielozet/cmcc-voice-remote-bridge
+   The following files (and their derivatives in this tree) were taken from
+   that project and remain under GPL-2.0. Full text: tools/voice/LICENSE
+   File list and mapping: tools/voice/NOTICE
+
+   - tools/voice/voice_bridge.py
+   - tools/voice/audio_decode_summary.md
+   - tools/voice/libg722_1-v0.2.0-debug-globals.patch
+   - tools/voice/decode_main.c  (derivative)
+   - lib/g7221/src/decoder.c    (patched with the above patch)
+
+2) freeswitch / libg7221 (GPL-2.0)
+   tools/voice/decode.exe, tools/voice/libg7221/, and lib/g7221/ include or
+   link code from https://github.com/freeswitch/libg7221 (v0.2.0).
+   decode.exe is invoked as a separate process / optional dependency.
+
+3) PlatformIO / Arduino dependencies (NimBLE-Arduino, Arduino-ESP32,
+   Adafruit TCA8418, GFX Library for Arduino, etc.) retain their respective
+   upstream licenses.
 ---------------------------------------------------------------------------

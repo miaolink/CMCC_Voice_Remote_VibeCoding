@@ -1,5 +1,9 @@
 # CMCC 语音遥控器 —— 音频解码方式汇总
 
+> **许可证 / 来源**：GPL-2.0 · 来自
+> [jackielozet/cmcc-voice-remote-bridge](https://github.com/jackielozet/cmcc-voice-remote-bridge)
+> 的 `audio_decode_summary.md`（见 [`NOTICE`](NOTICE)）。
+>
 > 整理时间：2026-10-31
 > 数据来源：仓库内已实现代码 + 盒子 btsnoop/hidraw 实测，逐条核对，非推测。
 > 涉及代码：`publish/pc/voice_bridge_20261031_0115.py`、`bt-snoop-new/box_voice_truth.py`、`tools/libg7221/decode_main.c`

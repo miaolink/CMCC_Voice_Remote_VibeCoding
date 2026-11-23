@@ -12,6 +12,10 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * Local note: G722_DBG_* globals come from
+ * tools/voice/libg722_1-v0.2.0-debug-globals.patch
+ * (origin: jackielozet/cmcc-voice-remote-bridge, GPL-2.0).
  */
 
 /*! \file */

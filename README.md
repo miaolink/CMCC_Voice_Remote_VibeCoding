@@ -231,7 +231,16 @@ python voice_cap.py COM3 --auto
 - **未匹配按键**：串口会打 raw/hex；到 `/learn` 补录即可。
 - **设置键**：旧映射 Consumer `0x0183` 会弹 Windows 媒体播放器，已默认改为 F10，并加防护。
 - **语音不断流**：确认已连上遥控并按住语音键；用 `/voice` 看 `fc_like` / pps，或串口是否出现 `# VOICE 1` 与 `A ...` 行。
-- **许可证**：`decode.exe` / libg7221 为 GPL-2.0，以独立进程调用；见 `tools/voice`。
+- **许可证**：仓库主体为 MIT；`tools/voice/` 中源自 [cmcc-voice-remote-bridge](https://github.com/jackielozet/cmcc-voice-remote-bridge) 的解码相关文件，以及 `decode.exe` / libg7221，为 **GPL-2.0**（独立进程调用）。详见下方「第三方与许可证」。
+
+---
+
+## 第三方与许可证
+
+- **本仓库主体**：MIT（[`LICENSE`](LICENSE)）。
+- **GPL-2.0 部分**（声明与文件清单）：
+  - [jackielozet/cmcc-voice-remote-bridge](https://github.com/jackielozet/cmcc-voice-remote-bridge)：`tools/voice/voice_bridge.py`、`audio_decode_summary.md`、`libg722_1-v0.2.0-debug-globals.patch`，以及衍生的 `decode_main.c`、`lib/g7221/src/decoder.c`（打补丁后）。完整说明见 [`tools/voice/NOTICE`](tools/voice/NOTICE)、[`tools/voice/LICENSE`](tools/voice/LICENSE)。
+  - [freeswitch/libg7221](https://github.com/freeswitch/libg7221)：`tools/voice/libg7221/`、`lib/g7221/`、`decode.exe`（独立进程）。
 
 ---
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# SPDX-License-Identifier: GPL-2.0-only
+# Origin: https://github.com/jackielozet/cmcc-voice-remote-bridge
+#         pc/voice_bridge_20261031_0115.py
 """
 CMCC 语音遥控器 -> PC 音频桥（v1, 2026-10-31 0115）
 =================================================================

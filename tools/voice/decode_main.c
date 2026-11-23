@@ -1,4 +1,7 @@
 /* decode_main.c - libg722_1 → WAV (GPL-2.0 via separate process)
+ * SPDX-License-Identifier: GPL-2.0-only
+ * Derivative of jackielozet/cmcc-voice-remote-bridge
+ *   tools/g7221-decoder/decode_main.c
  * usage: decode.exe in.raw out.wav [bitrate]
  */
 #include <stdio.h>

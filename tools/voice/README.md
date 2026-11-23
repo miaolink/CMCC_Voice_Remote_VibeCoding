@@ -26,4 +26,12 @@ python voice_cap.py COM3 --auto
 ## 说明
 
 - USB 麦克风（UAC）尚未做；当前先落地可听 WAV。
-- `decode.exe` 基于 freeswitch/libg7221（GPL-2.0，独立进程调用）。
+- `decode.exe` 基于 [freeswitch/libg7221](https://github.com/freeswitch/libg7221)（GPL-2.0，独立进程调用）。
+
+## 来源与许可证（GPL-2.0）
+
+本目录中与遥控 BLE 音频解码相关的若干文件来自
+[jackielozet/cmcc-voice-remote-bridge](https://github.com/jackielozet/cmcc-voice-remote-bridge)
+（GPL-2.0）。详见 [`NOTICE`](NOTICE) 与 [`LICENSE`](LICENSE)。
+
+仓库其余代码默认仍为根目录 MIT（见 [`../../LICENSE`](../../LICENSE)）；上述 GPL 文件及其衍生部分单独按 GPL-2.0 授权。
